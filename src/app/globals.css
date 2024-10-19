@@ -1,13 +1,7 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #171717; 
+  --foreground: #cfcfcf;
+  --highlight: #3f3f3f; 
 }
 
 html,
@@ -18,7 +12,7 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: hsl(120, 10%, 3%);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -30,13 +24,332 @@ body {
   margin: 0;
 }
 
-a {
+button {
   color: inherit;
-  text-decoration: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  position: relative;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+button::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--foreground);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+button:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.main {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.main h1 {
+  font-size: 8rem;
+  color: var(--foreground);
+}
+
+.main .name {
+  font-size: 118px;
+  color: var(--foreground); 
+  transition: all ease-out 0.7s;
+}
+
+.main .name:hover {
+  transform: scale(1.1);
+}
+
+.main .description {
+  font-size: 27px;
+  color: var(--foreground);
+}
+
+.main .description1 {
+  font-size: 22px;
+  color: var(--foreground);
+}
+
+.navbar {
+  display: flex;
+  margin: 0;
+  position: relative;
+  margin-top: 150px;
+  gap: 90px;
+}
+
+.about-section {
+  display: flex;
+  background-color: hsl(120, 10%, 3%);
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+}
+
+.language-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  position: relative;
+  left: 680px;
+  top: -150px;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left; 
+  border-radius: 30px;
+  box-shadow: 0px 0px 70px 0px rgba(251, 251, 251, 0.2);
+  background-color:hsl(9, 5%, 5%);
+  width: 900px;
+  height: 400px;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  left: -110px;
+}
+
+.about-text {
+  max-width: 800px; 
+  position: relative;
+  left: -60px;
+}
+
+.about-section h2 {
+  font-size: 3rem;
+}
+
+.about-section p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.about-section .back {
+  position: relative;
+  left: 150px;
+  top: 170px;
+}
+
+.time {
+  position: relative;
+  top: 40px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.skill-section {
+  padding: 20px;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.skill-categories {
+  margin-bottom: 20px;
+}
+
+.skill-categories button {
+  padding: 10px 15px;
+  margin-right: 10px;
+  background-color: var(--highlight);
+  border: none;
+  border-radius: 5px;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.skill-categories button:hover {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 10px; 
+  margin-top: 20px;
+}
+
+.skill-item {
+  background-color: var(--highlight);
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: var(--foreground);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  flex: 0 0 calc(14.2857% - 50px); 
+  margin-bottom: 10px; 
+  box-sizing: border-box;
+}
+
+.skill-item:hover {
+  transform: scale(1.05);
+}
+
+.skill-section .back {
+  position: relative;
+  padding: 10px 15px;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin-left: auto; 
+  margin-right: auto;
+  top: 150px;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #f5f5f5;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.contact-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-container p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.icon-item a {
+  color: #f5f5f5;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.icon-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.icon-item span {
+  margin-top: 5px;
+  font-size: 1rem;
+}
+
+.contact-container .back {
+  position: relative;
+  top: 150px;
+}
+
+@media (max-width: 768px) {
+  .main h1 {
+    font-size: 5rem;
+  }
+
+  .main .name {
+    font-size: 80px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+    left: 0;
+    margin-bottom: 20px;
+  }
+
+  .about-text {
+    max-width: 100%;
+    left: 0;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 50px;
+  }
+
+  .language-selector {
+    left: 0;
+    top: 0;
+    margin-top: 10px;
+  }
+
+  .about-section {
+    height: auto;
+    padding: 20px;
+  }
+
+  .skill-section {
+    height: auto;
+  }
+
+  .contact-container h1 {
+    font-size: 2rem;
+  }
+
+  .contact-container p {
+    font-size: 1rem;
   }
 }

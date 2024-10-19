@@ -1,95 +1,84 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import { useEffect, useState } from "react";
+import About from "./about.jsx";
+import Skill from "./skill.jsx";
+import Contact from "./contact.jsx"; 
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [showAbout, setShowAbout] = useState(false);
+  const [showSkill, setShowSkill] = useState(false);
+  const [showContact, setShowContact] = useState(false); 
+  const [currentDateTime, setCurrentDateTime] = useState("");
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+  const handleShowAbout = () => {
+    setShowAbout(true);
+    setShowSkill(false);
+    setShowContact(false);
+  };
+
+  const handleShowSkill = () => {
+    setShowSkill(true);
+    setShowAbout(false);
+    setShowContact(false);
+  };
+
+  const handleShowContact = () => { 
+    setShowContact(true);
+    setShowAbout(false);
+    setShowSkill(false);
+  };
+
+  const handleBack = () => {
+    setShowAbout(false); 
+    setShowSkill(false);
+    setShowContact(false);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date();
+      const formattedDateTime = new Intl.DateTimeFormat("tr-TR", {
+        weekday: "long", 
+        year: "numeric", 
+        month: "long", 
+        day: "numeric", 
+        hour: "numeric", 
+        minute: "numeric",
+        second: "numeric", 
+      }).format(now);
+      setCurrentDateTime(formattedDateTime);
+    }, 100);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div>
+      {!showAbout && !showSkill && !showContact ? ( 
+        <div className="main">
+          <h1>Hi👋</h1>
+          <h2 className="name">ayd1ndemirci</h2>
+          <p className="description">My name is Aydın Demirci ✨</p>
+          <p className="description1">I'm a student of High School 🏫</p>
+          <p className="time">{currentDateTime}</p>
+          <div className="navbar">
+            <button className="about" onClick={handleShowAbout}>
+              about
+            </button>
+            <button className="skill" onClick={handleShowSkill}>
+              skill
+            </button>
+            <button className="contact" onClick={handleShowContact}>
+              contact
+            </button>
+          </div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      ) : showAbout ? (
+        <About handleBack={handleBack} />
+      ) : showSkill ? (
+        <Skill handleBack={handleBack} />
+      ) : (
+        <Contact handleBack={handleBack} />
+      )}
     </div>
   );
 }
