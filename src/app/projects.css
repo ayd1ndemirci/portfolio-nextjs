@@ -1,0 +1,78 @@
+.projects-section {
+  text-align: center;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column; 
+}
+
+.projects-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+  color: #ffffff;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  justify-items: center;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.project-card {
+  background-color: #1a1a1e;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  text-align: center;
+  width: 400px;
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.project-card:hover {
+  background: #1c1c1e;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.project-name {
+  font-size: 1em;
+  color: #fff;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.repo-stars {
+  font-size: 1rem;
+  color: #ffeb3b;
+  margin-left: 1rem;
+}
+
+.loading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.projects-section .back {
+  position: relative;
+  left: 10px;
+  top: 100px;
+}
