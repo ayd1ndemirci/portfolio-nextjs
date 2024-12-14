@@ -1,15 +1,11 @@
-import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/CalSans-SemiBold.ttf",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/CalSans-SemiBold.ttf",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+// Inter fontunu dahil edin
+const inter = Inter({
+  subsets: ["latin"], // Latin karakter desteği
+  variable: "--font-inter",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], // İstediğiniz ağırlıkları belirtin
 });
 
 export const metadata = {
@@ -20,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={inter.variable}>
         {children}
       </body>
     </html>

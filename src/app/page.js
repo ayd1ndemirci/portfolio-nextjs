@@ -69,9 +69,8 @@ export default function Home() {
       {!showAbout && !showSkill && !showContact && !showProjects ? (
         <div className="main">
           <h1>Hi👋</h1>
-          <h2 className="name">ayd1ndemirci</h2>
-          <p className="description">My name is Aydın Demirci ✨</p>
-          <p className="description1">I'm a student of High School 🏫</p>
+          <p className="description">I'm <span className="coloredName">Aydın Demirci</span></p>
+          <p className="description1">I'm a <span className="coloredText">fullstack developer</span></p>
           <p className="time">{currentDateTime}</p>
           <div className="navbar">
             <button className="about" onClick={handleShowAbout}>
