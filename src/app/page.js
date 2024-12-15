@@ -72,6 +72,7 @@ export default function Home() {
         <meta name="description" content="Aydın Demirci'nin resmi web sitesi. Projelerim, yazılarım ve hakkımda bilgiye ulaşın." />
         <meta name="keywords" content="Aydın Demirci, ayd1ndemirci, aydın demirci, aydın demirci portfolyo" />
         <meta name="author" content="Aydın Demirci" />
+        <meta name="google-site-verification" content="jrUa8qqaD-zV1JGqn5MvUbAn8EC-GlcKIuSfs-5JKVg"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charSet="UTF-8" />
       </Head>
