@@ -9,6 +9,7 @@
   --text-color-name: #f0c7c7;
   --colored-text-name: #a01f21;
   --font-inter: 'Inter', sans-serif;
+  user-select: none;
 }
 
 html,
