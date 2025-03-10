@@ -12,6 +12,7 @@ export default function Skill({ handleBack }) {
         { name: "C++", category: "languages" },
         { name: "Node.JS", category: "languages" },
         { name: "GoLang", category: "languages"},
+        { name: "Java", category: "languages"},
         
         { name: "MySQL", category: "databases" },
         { name: "SQLite", category: "databases" },
